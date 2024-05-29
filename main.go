@@ -80,6 +80,7 @@ func main() {
 
 	if apiCfg.DB != nil {
 		v1Router.Post("/users", apiCfg.handlerUsersCreate)
+
 		v1Router.Get("/users", apiCfg.middlewareAuth(apiCfg.handlerUsersGet))
 		v1Router.Get("/notes", apiCfg.middlewareAuth(apiCfg.handlerNotesGet))
 		v1Router.Post("/notes", apiCfg.middlewareAuth(apiCfg.handlerNotesCreate))
@@ -94,5 +95,4 @@ func main() {
 	}
 
 	log.Printf("Serving on port: %s\n", port)
-	log.Fatal(srv.ListenAndServe())
-}
+	log.Fatal(srv.ListenAndServe())}
